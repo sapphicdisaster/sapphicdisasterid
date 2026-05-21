@@ -360,25 +360,44 @@
                 {
                     name: "qutenote",
                     status: "ONLINE",
-                    desc: "Deep-stack high-performance C++/Qt note engine optimised for silicon-level memory efficiency and cross-platform native execution.",
-                    stats: ["MEM_ALLOC: 128MB", "UPTIME: 342h 12m"],
+                    desc: "Simple, joyful Qt note app for desktop and Android. Rich text, images, themes, offline-first. No ads, no cloud, no accounts \u2014 just notes. Free forever.",
+                    stats: [
+                        "PLATFORMS: Win / Linux / macOS / Android",
+                        "FRAMEWORK: Qt 6.10+",
+                        "LICENSE: Free",
+                    ],
                     url: null,
                 },
                 {
-                    name: "Kernel Hacking: SM-T380",
-                    status: "COMPILING",
-                    desc: "Reverse-engineering and mainlining for postmarketOS, bypassing SBOOT and TrustZone constraints for raw hardware control.",
+                    name: "SM-T380 Mainline Port",
+                    status: "ONLINE",
+                    desc: "Mainline Linux port to the Samsung Galaxy Tab A 8.0 (gta2swifi/MSM8917). No upstream DTS existed \u2014 every subsystem reverse-engineered from vendor source and empirical testing.",
                     stats: [
-                        "TARGET_ARCH: ARM64",
-                        "BUILD_STATUS: [||||||||||  ] 82%",
+                        "TARGET: gta2swifi / MSM8917",
+                        "KERNEL: mainline edge",
+                        "RUNNING: Alpine + Xfce (GPU, WiFi, BT, touch, OSK)",
                     ],
                     url: null,
                 },
                 {
                     name: "AotearoaVolte",
                     status: "DEPLOYED",
-                    desc: "Research and development of a 4G LTE tool; investigating silicon-level behaviour and protocol stack vulnerabilities.",
-                    stats: ["NETWORK: 4G/LTE", "SEC_CLEARANCE: LEVEL_3"],
+                    desc: "VoLTE enablement for the OnePlus 9R on Spark NZ / Skinny. Started as a config tweak; ended in custom C tooling and Qualcomm modem protocol reverse-engineering.",
+                    stats: [
+                        "CARRIER: Spark NZ / Skinny (MCC=530, MNC=05)",
+                        "DEVICE: LE2101 lemonades",
+                    ],
+                    url: null,
+                },
+                {
+                    name: "MikeCenter",
+                    status: "ONLINE",
+                    desc: "Rust media dashboard for a dedicated station \u2014 CD ripping, vinyl recording/encoding, Navidrome networking, and UPnP port-mapping in one high-contrast touch UI.",
+                    stats: [
+                        "LANG: Rust",
+                        "AUDIO: ALSA/cpal + FFmpeg",
+                        "SERVICES: Navidrome + MusicBrainz + Discogs",
+                    ],
                     url: null,
                 },
             ];
