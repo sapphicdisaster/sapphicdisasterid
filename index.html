@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Skye Amaryllis // id.lesbia.nz</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Press+Start+2P&amp;family=VT323&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#353534",
+                      "error": "#ffb4ab",
+                      "on-error": "#690005",
+                      "tertiary-fixed": "#6bfe9a",
+                      "secondary-fixed": "#93f2f2",
+                      "tertiary-container": "#4ee483",
+                      "text-dim": "#cccccc",
+                      "surface-container": "#201f1f",
+                      "surface-bright": "#3a3939",
+                      "outline-variant": "#3c4a47",
+                      "on-tertiary-fixed-variant": "#005227",
+                      "on-tertiary-fixed": "#00210c",
+                      "secondary-container": "#007f7f",
+                      "background": "#131313",
+                      "tertiary": "#81ffa4",
+                      "text-bright": "#ffffff",
+                      "tertiary-fixed-dim": "#4ae181",
+                      "surface-container-high": "#2a2a2a",
+                      "primary-container": "#40e0d0",
+                      "on-tertiary-container": "#00622f",
+                      "secondary": "#76d6d5",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary": "#003919",
+                      "primary-fixed": "#61f9e9",
+                      "on-secondary": "#003737",
+                      "surface-dim": "#131313",
+                      "on-secondary-fixed-variant": "#004f4f",
+                      "surface": "#131313",
+                      "on-primary-fixed-variant": "#005049",
+                      "scanline-overlay": "rgba(0, 255, 200, 0.04)",
+                      "outline": "#859491",
+                      "primary": "#66fdec",
+                      "on-primary": "#003732",
+                      "inverse-surface": "#e5e2e1",
+                      "surface-tint": "#3adccc",
+                      "on-secondary-fixed": "#002020",
+                      "light-teal": "#aaf0d1",
+                      "on-secondary-container": "#ddfffe",
+                      "primary-fixed-dim": "#3adccc",
+                      "on-primary-container": "#006058",
+                      "surface-container-low": "#1c1b1b",
+                      "secondary-fixed-dim": "#76d6d5",
+                      "on-surface": "#e5e2e1",
+                      "inverse-primary": "#006a62",
+                      "terminal-pink": "#ff4d80",
+                      "surface-variant": "#353534",
+                      "error-container": "#93000a",
+                      "on-background": "#e5e2e1",
+                      "inverse-on-surface": "#313030",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-surface-variant": "#bacac6",
+                      "on-primary-fixed": "#00201d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "container-max": "1024px",
+                      "unit": "4px",
+                      "margin-mobile": "20px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "VT323"
+                      ],
+                      "body-md": [
+                              "Inconsolata"
+                      ],
+                      "label-ui": [
+                              "Press Start 2P"
+                      ],
+                      "headline-xl": [
+                              "VT323"
+                      ],
+                      "body-lg": [
+                              "Inconsolata"
+                      ],
+                      "headline-lg": [
+                              "VT323"
+                      ],
+                      "headline-xl-mobile": [
+                              "VT323"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "2rem",
+                              {
+                                      "lineHeight": "1.1",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "1.2rem",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-ui": [
+                              "0.8rem",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-xl": [
+                              "4rem",
+                              {
+                                      "lineHeight": "1.0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "1.5rem",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "3rem",
+                              {
+                                      "lineHeight": "1.1",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-xl-mobile": [
+                              "2.5rem",
+                              {
+                                      "lineHeight": "1.0",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+</script>
+<style>
+        body {
+            background-color: #131313; /* Fallback */
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Grid Background */
+        .bg-grid {
+            background-size: 20px 20px;
+            background-image:
+                linear-gradient(to right, rgba(0, 128, 128, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 128, 128, 0.1) 1px, transparent 1px);
+        }
+
+        /* Scanline Animation */
+        .scanlines {
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.2)
+            );
+            background-size: 100% 4px;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 40;
+            pointer-events: none;
+            opacity: 0.7;
+            animation: scan 10s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100vh; }
+        }
+
+        /* Terminal Button */
+        .btn-terminal {
+            border: 1px solid #2bca6d;
+            background: transparent;
+            color: #2bca6d;
+            transition: all 0.3s ease;
+        }
+        .btn-terminal:hover {
+            background: #2bca6d;
+            color: #111;
+            box-shadow: 0 0 10px #2bca6d;
+        }
+        .btn-terminal-primary {
+            border: 1px solid #ff4d80;
+            color: #ff4d80;
+        }
+        .btn-terminal-primary:hover {
+            background: #ff4d80;
+            color: #111;
+            box-shadow: 0 0 10px #ff4d80;
+        }
+
+        /* Blinking Cursor */
+        .cursor-blink::after {
+            content: '_';
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Custom Scrollbar for terminal vibe */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+            border-left: 1px solid #3c4a47;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #007f7f;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #66fdec;
+        }
+
+        /* Hero Splash Section */
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-bottom: 1px solid #3c4a47;
+        }
+
+        .splash-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            text-align: center;
+            pointer-events: none;
+            background: radial-gradient(circle at center, rgba(19, 19, 19, 0.1) 0%, rgba(19, 19, 19, 0.7) 100%);
+            padding-top: 5rem;
+            padding-bottom: 6rem;
+        }
+
+        .sys-boot-text {
+            animation: blink-fast 1s step-end infinite;
+            text-shadow: 0 0 10px #66fdec;
+        }
+
+        @keyframes blink-fast {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: bounce 2s infinite;
+            opacity: 0.7;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-10px) translateX(-50%); }
+            60% { transform: translateY(-5px) translateX(-50%); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen flex flex-col">
+<!-- Background Texture Layers (for main content area) -->
+<div class="fixed inset-0 bg-grid z-0 pointer-events-none"></div>
+<div class="scanlines"></div>
+<!-- Hero Section -->
+<section class="hero-section">
+<canvas height="2394" id="particle-canvas" width="390"></canvas>
+<main class="splash-content p-6">
+<div class="flex flex-col items-center w-full mt-8 md:mt-16">
+<h1 class="font-headline-xl text-headline-xl text-primary md:font-headline-xl md:text-headline-xl font-headline-xl-mobile text-headline-xl-mobile tracking-widest uppercase mb-4" style="text-shadow: rgba(102, 253, 236, 0.5) 0px 0px 15px; opacity: 1;">
+                SKYE_AMARYLLIS
+    </h1>
+<div class="font-label-ui text-label-ui text-terminal-pink uppercase tracking-widest mt-2 sys-boot-text">
+                &gt; FREELANCE_IT_SPECIALIST // WEB_DESIGNER
+    </div>
+</div>
+<div class="max-w-md w-full bg-surface-container-high/60 backdrop-blur-sm border border-outline-variant p-6 shadow-[0_0_20px_rgba(64,224,208,0.1)] mb-8 pointer-events-auto relative">
+<!-- Corner Accents -->
+<div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary -mt-[1px] -ml-[1px]"></div>
+<div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-primary -mt-[1px] -mr-[1px]"></div>
+<div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-primary -mb-[1px] -ml-[1px]"></div>
+<div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary -mb-[1px] -mr-[1px]"></div>
+<h2 class="font-headline-lg-mobile text-primary mb-4">AMARYLLIS PROTOCOL</h2>
+<p class="font-body-md text-on-surface-variant mb-6 text-left">
+                Freelance IT specialist and web designer based in Aotearoa New Zealand. Available for consultation, hardware/software triage, and web projects.
+            </p>
+<div class="flex gap-4 justify-center">
+<a class="btn-terminal font-label-ui px-6 py-4 flex items-center justify-center gap-2 group w-full" href="mailto:skye@emailengine.org">
+<span class="material-symbols-outlined group-hover:animate-spin">mail</span>
+                    CONNECT
+                </a>
+</div>
+</div>
+</main>
+<a class="scroll-indicator" href="#sys-capabilities">
+<span class="font-label-ui text-[0.6rem] text-secondary mb-2 tracking-widest uppercase">Scroll to Explore</span>
+<span class="material-symbols-outlined text-secondary">keyboard_arrow_down</span>
+</a>
+</section>
+<!-- Main Content Container -->
+<main class="w-full max-w-container-max flex-grow flex flex-col z-10 px-margin-mobile md:px-margin-desktop pt-16 pb-32 md:pb-24 relative mx-auto">
+<!-- Capabilities Section -->
+<section class="mb-12 w-full pt-8" id="sys-capabilities">
+<div class="border-b border-outline-variant mb-4 pb-2 flex items-center gap-2">
+<span class="w-2 h-2 bg-primary"></span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary" style="opacity: 1;">SYS.CAPABILITIES</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4"><ul class="space-y-2 font-body-lg text-body-lg text-on-surface-variant"><li class="hover:bg-secondary-container/20 p-2 transition-colors cursor-crosshair flex items-start"><span class="text-tertiary mr-2">&gt;</span> Software &amp; hardware consultation</li><li class="hover:bg-secondary-container/20 p-2 transition-colors cursor-crosshair flex items-start"><span class="text-tertiary mr-2">&gt;</span> Repair &amp; replacement service</li><li class="hover:bg-secondary-container/20 p-2 transition-colors cursor-crosshair flex items-start"><span class="text-tertiary mr-2">&gt;</span> Web design &amp; project management</li></ul><ul class="space-y-2 font-body-lg text-body-lg text-on-surface-variant"><li class="hover:bg-secondary-container/20 p-2 transition-colors cursor-crosshair flex items-start"><span class="text-tertiary mr-2">&gt;</span> Network troubleshooting</li><li class="hover:bg-secondary-container/20 p-2 transition-colors cursor-crosshair flex items-start"><span class="text-tertiary mr-2">&gt;</span> Device procurement advice</li></ul></div>
+</section>
+<!-- Project Gallery (Terminal Style) -->
+<section class="mb-8 w-full" id="active-projects">
+<div class="border-b border-outline-variant mb-4 pb-2 flex items-center gap-2">
+<span class="w-2 h-2 bg-tertiary"></span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-tertiary" style="opacity: 1;">ACTIVE_PROJECTS</h3>
+</div>
+<div class="flex flex-col gap-6 md:grid md:grid-cols-3">
+<!-- Terminal Card 1 -->
+<div class="border border-secondary-container bg-surface-container/40 p-4 hover:bg-surface-container/80 hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-secondary group-hover:text-primary">&gt;</span>
+<span class="font-headline-lg-mobile text-text-bright tracking-wider group-hover:text-primary group-hover:[text-shadow:0_0_8px_#66fdec] transition-all duration-300" style="opacity: 1;">MODULE: qutenote</span>
+</div>
+<span class="font-label-ui text-[10px] bg-tertiary-fixed-dim/20 text-tertiary border border-tertiary px-2 py-1">ONLINE</span>
+</div>
+<div class="pl-4 border-l border-outline-variant ml-1 flex flex-col gap-1 text-text-dim text-sm font-body-md mt-2">
+<span>&gt; DESC: Deep-stack high-performance C++/Qt note engine optimised for silicon-level memory efficiency and cross-platform native execution.</span>
+<span>&gt; MEM_ALLOC: 128MB</span>
+<span>&gt; UPTIME: 342h 12m</span>
+</div>
+</div>
+<!-- Terminal Card 2 -->
+<div class="border border-secondary-container bg-surface-container/40 p-4 hover:bg-surface-container/80 hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-secondary group-hover:text-primary">&gt;</span>
+<span class="font-headline-lg-mobile text-text-bright tracking-wider group-hover:text-primary group-hover:[text-shadow:0_0_8px_#66fdec] transition-all duration-300" style="opacity: 1;">MODULE: Kernel Hacking: SM-T380</span>
+</div>
+<span class="font-label-ui text-[10px] bg-secondary-fixed-dim/20 text-secondary border border-secondary px-2 py-1">COMPILING</span>
+</div>
+<div class="pl-4 border-l border-outline-variant ml-1 flex flex-col gap-1 text-text-dim text-sm font-body-md mt-2">
+<span>&gt; DESC: Reverse-engineering and mainlining for postmarketOS, bypassing SBOOT and TrustZone constraints for raw hardware control.</span>
+<span>&gt; TARGET_ARCH: ARM64</span>
+<span>&gt; BUILD_STATUS: [||||||||||&nbsp;&nbsp;] 82%</span>
+</div>
+</div>
+<!-- Terminal Card 3 -->
+<div class="border border-secondary-container bg-surface-container/40 p-4 hover:bg-surface-container/80 hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-secondary group-hover:text-primary">&gt;</span>
+<span class="font-headline-lg-mobile text-text-bright tracking-wider group-hover:text-primary group-hover:[text-shadow:0_0_8px_#66fdec] transition-all duration-300" style="opacity: 1;">MODULE: AotearoaVolte</span>
+</div>
+<span class="font-label-ui text-[10px] bg-terminal-pink/20 text-terminal-pink border border-terminal-pink px-2 py-1">DEPLOYED</span>
+</div>
+<div class="pl-4 border-l border-outline-variant ml-1 flex flex-col gap-1 text-text-dim text-sm font-body-md mt-2">
+<span>&gt; DESC: Research and development of a 4G LTE tool; investigating silicon-level behaviour and protocol stack vulnerabilities.</span>
+<span>&gt; NETWORK: 4G/LTE</span>
+<span>&gt; SEC_CLEARANCE: LEVEL_3</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full text-center font-label-ui text-on-surface-variant opacity-40 mt-4 mb-2 text-[0.6rem] tracking-widest">
+    [ id.lesbia.nz // AMARYLLIS PROTOCOL // v1.0 ]
+</footer>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden flex justify-around items-center h-20 px-margin-mobile pb-safe fixed bottom-0 w-full z-50 border-t border-outline-variant shadow-[0_-4px_20px_rgba(0,0,0,0.5)] bg-surface-container-lowest/90 backdrop-blur-lg">
+<!-- CORE -->
+<a class="flex flex-col items-center justify-center text-primary bg-primary-container/10 rounded-xl py-1 px-3 shadow-[0_0_10px_#66fdec] active:scale-95 transition-transform cursor-pointer" href="#sys-capabilities">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">memory</span>
+<span class="font-label-ui text-[10px] mt-1">CORE</span>
+</a>
+<!-- PROJECTS -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 hover:text-secondary active:scale-95 transition-transform cursor-pointer" href="#active-projects">
+<span class="material-symbols-outlined">save</span>
+<span class="font-label-ui text-[10px] mt-1">PROJECTS</span>
+</a>
+<!-- ASCEND -->
+<a class="btn-terminal-primary flex flex-col items-center justify-center opacity-80 hover:opacity-100 active:scale-95 transition-transform cursor-pointer py-1 px-3" href="https://id.lesbia.nz/bridge">
+<span class="material-symbols-outlined">arrow_upward</span>
+<span class="font-label-ui text-[10px] mt-1">ASCEND</span>
+</a>
+</nav>
+<script>
+        // --- Particle System ---
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let pulses = [];
+        let w, h;
+
+        const colors = ['#40e0d0', '#007f7f', '#2bca6d', '#66fdec']; // teal, dark teal, forest green, primary
+
+        function resize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * w;
+                this.y = Math.random() * h;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.baseSize = Math.random() * 2 + 1;
+                this.size = this.baseSize;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.opacity = Math.random();
+                this.flickerSpeed = Math.random() * 0.03 + 0.01;
+                this.flickerDir = Math.random() > 0.5 ? 1 : -1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Bounce off edges
+                if (this.x < 0 || this.x > w) this.vx *= -1;
+                if (this.y < 0 || this.y > h) this.vy *= -1;
+
+                // Twinkle effect
+                this.opacity += this.flickerSpeed * this.flickerDir;
+                if (this.opacity > 1) {
+                    this.opacity = 1;
+                    this.flickerDir = -1;
+                } else if (this.opacity < 0.2) {
+                    this.opacity = 0.2;
+                    this.flickerDir = 1;
+                }
+                this.size = this.baseSize * (0.8 + this.opacity * 0.5);
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.opacity;
+                ctx.fill();
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        class Pulse {
+            constructor(p1, p2) {
+                this.p1 = p1;
+                this.p2 = p2;
+                this.progress = 0;
+                this.speed = Math.random() * 0.015 + 0.01;
+                this.color = '#ffffff'; // bright white/cyan core
+            }
+
+            update() {
+                this.progress += this.speed;
+            }
+
+            draw() {
+                const px = this.p1.x + (this.p2.x - this.p1.x) * this.progress;
+                const py = this.p1.y + (this.p2.y - this.p1.y) * this.progress;
+
+                ctx.beginPath();
+                ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+
+                ctx.shadowBlur = 12;
+                ctx.shadowColor = '#66fdec';
+
+                ctx.fill();
+
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            pulses = [];
+            for (let i = 0; i < 90; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function handleConnectionsAndPulses() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 140) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(64, 224, 208, ${(1 - dist / 140) * 0.6})`;
+                        ctx.lineWidth = 1.2;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+
+                        // Randomly spawn data transmission pulses
+                        if (Math.random() < 0.0005) {
+                            pulses.push(new Pulse(particles[i], particles[j]));
+                        }
+                    }
+                }
+            }
+
+            for (let i = pulses.length - 1; i >= 0; i--) {
+                pulses[i].update();
+                pulses[i].draw();
+                if (pulses[i].progress >= 1) {
+                    pulses.splice(i, 1);
+                }
+            }
+        }
+
+        function animate() {
+            // Clear with a solid dark rect to allow trails but keep it clean
+            ctx.fillStyle = 'rgba(19, 19, 19, 0.6)';
+            ctx.fillRect(0, 0, w, h);
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            handleConnectionsAndPulses();
+
+            requestAnimationFrame(animate);
+        }
+
+        initParticles();
+        animate();
+
+        // Simple JS for atmospheric effects
+        document.addEventListener('DOMContentLoaded', () => {
+            // Optional: Add subtle noise or flicker to elements
+            const terminalElements = document.querySelectorAll('.font-headline-lg-mobile, .font-headline-xl-mobile');
+
+            setInterval(() => {
+                terminalElements.forEach(el => {
+                    if(Math.random() > 0.95) {
+                        el.style.opacity = Math.random() * 0.5 + 0.5;
+                        setTimeout(() => {
+                            el.style.opacity = 1;
+                        }, 50);
+                    }
+                });
+            }, 2000);
+
+            // Smooth scroll for indicator
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body></html>

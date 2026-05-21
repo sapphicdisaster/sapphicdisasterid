@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PROTOCOL_BRIDGE // id.lesbia.nz → angelic.lesbia.nz</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Press+Start+2P&amp;family=VT323&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#e5e2e1",
+                        "inverse-primary": "#006a62",
+                        "surface": "#131313",
+                        "text-bright": "#ffffff",
+                        "secondary": "#76d6d5",
+                        "on-error": "#690005",
+                        "on-primary-fixed-variant": "#005049",
+                        "on-secondary-fixed": "#002020",
+                        "inverse-surface": "#e5e2e1",
+                        "text-dim": "#cccccc",
+                        "on-secondary-container": "#ddfffe",
+                        "secondary-container": "#007f7f",
+                        "secondary-fixed": "#93f2f2",
+                        "primary-fixed": "#61f9e9",
+                        "on-secondary": "#003737",
+                        "on-tertiary-fixed-variant": "#005227",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#3c4a47",
+                        "tertiary-fixed-dim": "#4ae181",
+                        "on-primary-container": "#006058",
+                        "tertiary": "#81ffa4",
+                        "terminal-pink": "#ff4d80",
+                        "surface-container-lowest": "#0e0e0e",
+                        "light-teal": "#aaf0d1",
+                        "error-container": "#93000a",
+                        "tertiary-container": "#4ee483",
+                        "secondary-fixed-dim": "#76d6d5",
+                        "primary-container": "#40e0d0",
+                        "surface-container": "#201f1f",
+                        "on-primary-fixed": "#00201d",
+                        "on-error-container": "#ffdad6",
+                        "background": "#131313",
+                        "surface-container-highest": "#353534",
+                        "on-tertiary-fixed": "#00210c",
+                        "surface-bright": "#3a3939",
+                        "on-background": "#e5e2e1",
+                        "scanline-overlay": "rgba(0, 255, 200, 0.04)",
+                        "on-surface-variant": "#bacac6",
+                        "primary": "#66fdec",
+                        "on-primary": "#003732",
+                        "primary-fixed-dim": "#3adccc",
+                        "on-secondary-fixed-variant": "#004f4f",
+                        "surface-dim": "#131313",
+                        "on-tertiary-container": "#00622f",
+                        "inverse-on-surface": "#313030",
+                        "on-tertiary": "#003919",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353534",
+                        "tertiary-fixed": "#6bfe9a",
+                        "surface-tint": "#3adccc",
+                        "outline": "#859491"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "container-max": "1024px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-xl-mobile": ["VT323"],
+                        "headline-xl": ["VT323"],
+                        "body-lg": ["Inconsolata"],
+                        "body-md": ["Inconsolata"],
+                        "headline-lg": ["VT323"],
+                        "headline-lg-mobile": ["VT323"],
+                        "label-ui": ["Press Start 2P"]
+                    },
+                    "fontSize": {
+                        "headline-xl-mobile": ["2.5rem", { "lineHeight": "1.0", "fontWeight": "400" }],
+                        "headline-xl": ["4rem", { "lineHeight": "1.0", "fontWeight": "400" }],
+                        "body-lg": ["1.5rem", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-md": ["1.2rem", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["3rem", { "lineHeight": "1.1", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["2rem", { "lineHeight": "1.1", "fontWeight": "400" }],
+                        "label-ui": ["0.8rem", { "lineHeight": "1.2", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling on splash screen */
+        }
+
+        /* Scanline Effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.2)
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.4;
+        }
+
+        .crt-flicker {
+            animation: flicker 0.15s infinite;
+            pointer-events: none;
+            z-index: 51;
+            position: fixed;
+            top:0; left:0; width:100%; height:100%;
+            background: rgba(0, 255, 200, 0.02);
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.9; }
+            50% { opacity: 1; }
+            100% { opacity: 0.9; }
+        }
+
+        /* Grid Background */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+        }
+
+        /* Central Content Container */
+        .splash-content {
+            position: relative;
+            z-index: 10;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Logo Glow */
+        .logo-glow {
+            text-shadow: 0 0 20px #66fdec, 0 0 40px #66fdec, 0 0 80px #007f7f;
+            animation: pulse-glow 2s infinite alternate;
+        }
+
+        .tertiary-glow {
+            text-shadow: 0 0 20px #81ffa4, 0 0 40px #81ffa4, 0 0 80px #00622f;
+            animation: tertiary-pulse-glow 2s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            from { text-shadow: 0 0 10px #66fdec, 0 0 20px #66fdec; }
+            to { text-shadow: 0 0 20px #66fdec, 0 0 40px #66fdec, 0 0 60px #007f7f; }
+        }
+
+        @keyframes tertiary-pulse-glow {
+            from { text-shadow: 0 0 10px #81ffa4, 0 0 20px #81ffa4; }
+            to { text-shadow: 0 0 20px #81ffa4, 0 0 40px #81ffa4, 0 0 60px #00622f; }
+        }
+
+        /* Blinking Cursor */
+        .cursor {
+            display: inline-block;
+            width: 12px;
+            height: 1.2em;
+            background-color: #66fdec;
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+            margin-left: 8px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Enter Button */
+        .enter-btn {
+            border: 1px solid #2bca6d;
+            background: transparent;
+            color: #2bca6d;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .enter-btn:hover {
+            background: #2bca6d;
+            color: #111;
+            box-shadow: 0 0 15px #2bca6d;
+        }
+
+        .enter-btn::before {
+            content: '>';
+            margin-right: 8px;
+            color: inherit;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary/30 selection:text-primary-fixed">
+
+<!-- Back link -->
+<a href="https://id.lesbia.nz" class="font-label-ui text-[10px] text-secondary/50 hover:text-secondary absolute top-4 left-4 z-20 no-underline">< RETURN</a>
+
+<!-- Global Effects -->
+<div class="scanlines"></div>
+<div class="crt-flicker"></div>
+<canvas id="matrix-canvas"></canvas>
+
+<!-- Main Splash Content -->
+<main class="splash-content w-full px-margin-mobile md:px-margin-desktop">
+
+<!-- Bridge Formation -->
+<div class="mb-10 relative flex flex-col items-center w-full max-w-[700px]">
+<!-- Glitch decorative elements behind logo -->
+<div class="absolute inset-0 bg-primary/10 blur-3xl rounded-full scale-150 animate-pulse"></div>
+<div class="flex flex-col md:flex-row items-center justify-center w-full relative z-10 gap-4 md:gap-8">
+
+<!-- Origin Node -->
+<div class="border border-secondary/50 bg-surface-container/60 backdrop-blur-sm px-6 py-4 rounded-sm relative overflow-hidden flex-1 w-full md:w-auto">
+<div class="absolute inset-0 bg-primary/5 animate-pulse"></div>
+<div class="text-xs text-secondary/60 font-body-md mb-1 text-left">ORIGIN_NODE</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-primary logo-glow tracking-widest relative z-10">lesbia.nz</h2>
+</div>
+
+<!-- Transfer Link -->
+<div class="flex flex-col items-center justify-center text-tertiary px-2 py-4 md:py-0">
+<span class="material-symbols-outlined text-4xl animate-pulse mb-2">lock</span>
+<div class="flex gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-[ping_1.5s_infinite]"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary animate-[ping_1.5s_infinite_300ms]"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary animate-[ping_1.5s_infinite_600ms]"></span>
+</div>
+</div>
+
+<!-- Target Node -->
+<div class="border border-tertiary/50 bg-surface-container/60 backdrop-blur-sm px-6 py-4 rounded-sm relative overflow-hidden shadow-[0_0_20px_rgba(129,255,164,0.15)] flex-1 w-full md:w-auto">
+<div class="absolute inset-0 bg-tertiary/5 animate-pulse" style="animation-delay: 0.5s;"></div>
+<div class="text-xs text-tertiary/60 font-body-md mb-1 text-left">TARGET_NODE</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-tertiary tertiary-glow tracking-widest relative z-10">angelic.lesbia.nz</h2>
+</div>
+
+</div>
+<p class="font-label-ui text-label-ui text-secondary/80 mt-8 tracking-[0.3em] uppercase">
+        Initialising Transit Sequence <span class="cursor"></span>
+</p>
+</div>
+
+<!-- Terminal Output Simulation -->
+<div class="w-full max-w-[600px] border border-secondary/30 bg-surface-container/80 backdrop-blur-md p-6 relative mb-12 text-left font-body-md text-secondary/70 h-48 overflow-hidden shadow-[0_0_15px_rgba(102,253,236,0.1)] rounded-sm" id="terminal-output">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+<!-- Dynamic JS content goes here -->
+</div>
+
+<!-- Action / Entry -->
+<button class="enter-btn font-label-ui text-label-ui px-8 py-4 tracking-wider" onclick="initiateSequence()">
+            BRIDGE_PROTOCOL
+        </button>
+
+</main>
+<script>
+        // --- 3D Grid Matrix Animation ---
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let time = 0;
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // Colors from tailwind config
+        const gridColor = 'rgba(102, 253, 236, 0.15)'; // primary with opacity
+        const accentColor = 'rgba(129, 255, 164, 0.3)'; // tertiary with opacity
+
+        function drawGrid() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Perspective variables
+            const fov = 300;
+            const yOffset = height * 0.6; // Horizon line slightly below center
+            const spacing = 50;
+            const speed = 2;
+
+            time += speed;
+
+            ctx.lineWidth = 1;
+
+            // Draw horizontal lines (moving forward)
+            for (let z = 10; z < 1000; z += spacing) {
+                // Calculate moving z position to create forward motion illusion
+                let currentZ = z - (time % spacing);
+                if (currentZ < 10) currentZ += 1000; // Reset to back
+
+                const scale = fov / currentZ;
+                const y = yOffset + (100 * scale); // Plane height
+
+                // Fade out based on distance
+                const alpha = Math.max(0, 1 - (currentZ / 1000));
+
+                // Add wave effect to Y based on time and distance
+                const waveY = y + Math.sin(time * 0.05 + currentZ * 0.01) * 20 * scale;
+
+                ctx.beginPath();
+                ctx.moveTo(0, waveY);
+                ctx.lineTo(width, waveY);
+
+                // Alternate colors slightly
+                ctx.strokeStyle = currentZ % (spacing * 4) < spacing ? accentColor : `rgba(102, 253, 236, ${alpha * 0.3})`;
+                ctx.stroke();
+            }
+
+            // Draw vertical lines (perspective convergence)
+            for (let x = -2000; x < 2000; x += spacing * 2) {
+                ctx.beginPath();
+
+                // Start near horizon
+                const startScale = fov / 1000;
+                let startX = width / 2 + x * startScale;
+                let startY = yOffset + (100 * startScale);
+                ctx.moveTo(startX, startY);
+
+                // End at bottom of screen
+                const endScale = fov / 10;
+                let endX = width / 2 + x * endScale;
+                let endY = yOffset + (100 * endScale);
+
+                // Connect with a slight curve to match horizontal wave
+                ctx.lineTo(endX, endY);
+
+                ctx.strokeStyle = `rgba(102, 253, 236, 0.2)`;
+                ctx.stroke();
+            }
+
+            requestAnimationFrame(drawGrid);
+        }
+        drawGrid();
+
+        // --- Terminal Output Simulation ---
+        const terminalOutput = document.getElementById('terminal-output');
+        const bootSequence = [
+            "[OK] HANDSHAKE_ESTABLISHED: lesbia.nz",
+            "Resolving target signature... [angelic.lesbia.nz]",
+            "Scanning for ADVENT.DAT... [FOUND]",
+            "Loading world state... [OK]",
+            "Initialising parser... [READY]",
+            "--> Encrypting transit payload... [DONE]",
+            "[WARN] You are likely to be eaten by a grue.",
+            "Transferring identity manifests...",
+            "01010011 01001011 01011001 01000101",
+            "Bridge synchronised. You may proceed."
+        ];
+
+        let lineIndex = 0;
+
+        function appendTerminalLine() {
+            if (lineIndex < bootSequence.length) {
+                const p = document.createElement('p');
+                p.textContent = `> ${bootSequence[lineIndex]}`;
+                p.className = "mb-1";
+
+                // Add slight randomness to color for glitch feel
+                if(bootSequence[lineIndex].includes("[WARN]")) {
+                     p.classList.add("text-terminal-pink");
+                }
+
+                terminalOutput.appendChild(p);
+
+                // Auto scroll
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+                lineIndex++;
+
+                // Random typing delay
+                setTimeout(appendTerminalLine, Math.random() * 300 + 100);
+            }
+        }
+
+        // Start terminal sequence shortly after load
+        setTimeout(appendTerminalLine, 1000);
+
+        // Button interaction
+        function initiateSequence() {
+            const btn = document.querySelector('.enter-btn');
+            btn.textContent = "EXECUTING...";
+            btn.classList.add('bg-terminal-pink', 'text-background', 'border-terminal-pink', 'animate-pulse');
+            btn.classList.remove('text-secondary', 'border-[#2bca6d]');
+            document.body.style.filter = "contrast(150%) hue-rotate(90deg)";
+            setTimeout(() => {
+                document.body.style.filter = "none";
+                setTimeout(() => {
+                    window.location.href = "https://angelic.lesbia.nz";
+                }, 300);
+            }, 500);
+        }
+
+    </script>
+</body></html>
