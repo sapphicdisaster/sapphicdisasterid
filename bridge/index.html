@@ -236,12 +236,12 @@
 <body class="bg-background text-on-surface font-body-md selection:bg-primary/30 selection:text-primary-fixed">
 
 <!-- Back link -->
-<a href="https://id.lesbia.nz" class="font-label-ui text-[10px] text-secondary/50 hover:text-secondary absolute top-4 left-4 z-20 no-underline">< RETURN</a>
+<a href="https://id.lesbia.nz" class="font-label-ui text-[10px] text-secondary/50 hover:text-secondary absolute top-4 left-4 z-20 no-underline">&lt; RETURN</a>
 
 <!-- Global Effects -->
-<div class="scanlines"></div>
-<div class="crt-flicker"></div>
-<canvas id="matrix-canvas"></canvas>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="crt-flicker" aria-hidden="true"></div>
+<canvas id="matrix-canvas" aria-hidden="true"></canvas>
 
 <!-- Main Splash Content -->
 <main class="splash-content w-full px-margin-mobile md:px-margin-desktop">
@@ -261,7 +261,7 @@
 
 <!-- Transfer Link -->
 <div class="flex flex-col items-center justify-center text-tertiary px-2 py-4 md:py-0">
-<span class="material-symbols-outlined text-4xl animate-pulse mb-2">lock</span>
+<span class="material-symbols-outlined text-4xl animate-pulse mb-2" aria-hidden="true">lock</span>
 <div class="flex gap-2">
 <span class="w-2 h-2 rounded-full bg-tertiary animate-[ping_1.5s_infinite]"></span>
 <span class="w-2 h-2 rounded-full bg-tertiary animate-[ping_1.5s_infinite_300ms]"></span>
@@ -283,7 +283,8 @@
 </div>
 
 <!-- Terminal Output Simulation -->
-<div class="w-full max-w-[600px] border border-secondary/30 bg-surface-container/80 backdrop-blur-md p-6 relative mb-12 text-left font-body-md text-secondary/70 h-48 overflow-hidden shadow-[0_0_15px_rgba(102,253,236,0.1)] rounded-sm" id="terminal-output">
+<div class="sr-only">Handshake established. Resolving target signature. Scanning for adventure data. Loading world state. Initialising parser. Encrypting transit payload. Warning: You are likely to be eaten by a grue. Transferring identity manifests. Bridge synchronised. You may proceed.</div>
+<div class="w-full max-w-[600px] border border-secondary/30 bg-surface-container/80 backdrop-blur-md p-6 relative mb-12 text-left font-body-md text-secondary/70 h-48 overflow-hidden shadow-[0_0_15px_rgba(102,253,236,0.1)] rounded-sm" id="terminal-output" aria-hidden="true">
 <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
 <!-- Dynamic JS content goes here -->
 </div>
@@ -421,6 +422,10 @@
 
         // Button interaction
         function initiateSequence() {
+            const warningText = "WARNING: You are about to leave the professional directory and enter an interactive terminal adventure.\n\nProceed with the ASCEND protocol?";
+            if (!confirm(warningText)) {
+                return;
+            }
             const btn = document.querySelector('.enter-btn');
             btn.textContent = "EXECUTING...";
             btn.classList.add('bg-terminal-pink', 'text-background', 'border-terminal-pink', 'animate-pulse');
