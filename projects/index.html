@@ -204,6 +204,7 @@
             .term-panel {
                 border: 1px solid #007f7f;
                 background-color: rgba(19, 19, 19, 0.92);
+                overflow: hidden;
             }
 
             .glowing-text {
@@ -244,18 +245,17 @@
         </style>
     </head>
 
-    <body class="relative antialiased min-h-screen flex flex-col">
+    <body class="relative antialiased min-h-[100dvh] flex flex-col">
         <a href="#projects-container" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:p-4 focus:bg-background focus:text-primary focus:z-[100] focus:outline-none focus:ring-2 focus:ring-primary">Skip to main content</a>
         <!-- Environmental overlays -->
         <div class="grid-bg" aria-hidden="true"></div>
         <div class="crt-overlay" aria-hidden="true"></div>
 
-        <!-- Terminal window — fills viewport minus nav bar -->
         <main
             class="flex-grow flex flex-col items-center justify-center relative z-20 p-4 md:p-margin-desktop pb-24 md:pb-28"
         >
             <div
-                class="term-panel w-full max-w-4xl flex flex-col relative shadow-[0_0_20px_rgba(102,253,236,0.1)] h-[calc(100vh-7rem)] md:h-[calc(100vh-8rem)]"
+                class="term-panel w-full max-w-4xl flex flex-col relative shadow-[0_0_20px_rgba(102,253,236,0.1)] h-[calc(100dvh-7rem)] md:h-[calc(100dvh-8rem)]"
             >
                 <!-- Terminal title bar -->
                 <div
@@ -287,7 +287,7 @@
 
                 <!-- Projects directory (hidden until boot completes) -->
                 <div
-                    class="hidden flex-grow flex-col gap-4 p-4 md:p-6 font-body-md text-primary overflow-y-auto term-scroll transition-opacity duration-1000 opacity-0"
+                    class="hidden flex-grow flex-col gap-4 p-4 md:p-6 font-body-md text-primary overflow-y-auto term-scroll transition-opacity duration-1000 opacity-0 min-h-0"
                     id="projects-container"
                 >
                     <!-- Header row -->
