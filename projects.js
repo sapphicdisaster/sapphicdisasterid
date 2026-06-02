@@ -11,7 +11,7 @@ const PROJECTS = [
             "KERNEL: mainline edge",
             "STATUS: PoC - fully functional",
         ],
-        url: null,
+        url: "https://github.com/sapphicdisaster/t380-linux/",
     },
     {
         name: "AotearoaVolte",
@@ -44,6 +44,28 @@ const PROJECTS = [
             "FEATURES: Rich text, images, themes, local storage",
             "AVAIL: Win / Linux / macOS / Android",
         ],
+        url: "https://github.com/sapphicdisaster/qutenote",
+    },
+    {
+        name: "Ghast",
+        status: "IN_DEV",
+        desc: "A modular, performant Rust MIDI Tracker and Hardware Controller for Linux. Features a high-precision threaded MIDI engine, real-time internal DSP synthesis, and deep hardware integration for the Novation Launchpad.",
+        stats: [
+            "LANG: Rust",
+            "AUDIO: cpal / ALSA / DSP",
+            "HW: Novation Launchpad / Akai",
+            "UI: egui TUI",
+        ],
+        url: null,
+    },
+    {
+        name: "Gelatin",
+        status: "COMPILING",
+        desc: "A Rust game engine using Rapier3D, built from the ground up for player interaction.",
+        stats: [
+            "LANG: Rust",
+            "PHYSICS: Rapier3D",
+        ],
         url: null,
     },
 ];
@@ -69,6 +91,11 @@ const STATUS_STYLES = {
         bg: "bg-outline-variant/20",
         text: "text-outline",
         border: "border-outline",
+    },
+    IN_DEV: {
+        bg: "bg-primary-fixed-dim/20",
+        text: "text-primary",
+        border: "border-primary",
     },
 };
 const STATUS_DEFAULT = {
