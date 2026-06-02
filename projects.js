@@ -61,10 +61,12 @@ const PROJECTS = [
     {
         name: "Gelatin",
         status: "COMPILING",
-        desc: "A Rust game engine using Rapier3D, built from the ground up for player interaction.",
+        desc: "A lightweight, modular Rust game engine inspired by MechWarrior and Titanfall. Built from the ground up for fluid movement, modular components, and rich environmental interaction, featuring seamless on-foot to mech gameplay and a highly performant wgpu rendering pipeline.",
         stats: [
             "LANG: Rust",
             "PHYSICS: Rapier3D",
+            "GRAPHICS: wgpu / winit",
+            "FOCUS: Fluid Movement / Interaction",
         ],
         url: null,
     },
