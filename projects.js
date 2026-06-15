@@ -72,74 +72,42 @@ const PROJECTS = [
     },
 ];
 
-// ─── Status badge colour map ─────────────────────────────────────────────
+// ─── Status badge class map ──────────────────────────────────────────────
 const STATUS_STYLES = {
-    ONLINE: {
-        bg: "bg-tertiary-fixed-dim/20",
-        text: "text-tertiary",
-        border: "border-tertiary",
-    },
-    COMPILING: {
-        bg: "bg-secondary-fixed-dim/20",
-        text: "text-secondary",
-        border: "border-secondary",
-    },
-    DEPLOYED: {
-        bg: "bg-terminal-pink/20",
-        text: "text-terminal-pink",
-        border: "border-terminal-pink",
-    },
-    ARCHIVED: {
-        bg: "bg-outline-variant/20",
-        text: "text-outline",
-        border: "border-outline",
-    },
-    IN_DEV: {
-        bg: "bg-primary-fixed-dim/20",
-        text: "text-primary",
-        border: "border-primary",
-    },
+    ONLINE: "status-online",
+    COMPILING: "status-compiling",
+    DEPLOYED: "status-deployed",
+    ARCHIVED: "status-archived",
+    IN_DEV: "status-indev",
 };
-const STATUS_DEFAULT = {
-    bg: "bg-outline-variant/20",
-    text: "text-on-surface-variant",
-    border: "border-outline-variant",
-};
+const STATUS_DEFAULT = "status-default";
 
 // ─── Card renderer ───────────────────────────────────────────────────────
 function renderCard(project) {
-    const style = STATUS_STYLES[project.status] ?? STATUS_DEFAULT;
+    const statusClass = STATUS_STYLES[project.status] ?? STATUS_DEFAULT;
     const tag = project.url ? "a" : "div";
     const href = project.url ? `href="${project.url}"` : "";
     const ariaRole = project.url ? "" : `role="region" tabindex="0" aria-label="Project: ${project.name}"`;
 
     const stats = project.stats
-        .map((s) => `<span class="text-text-dim" aria-hidden="true">&gt;</span> <span class="text-text-dim">${s}</span>`)
+        .map((s) => `<div class="card-stat-line"><span class="bullet-sym" aria-hidden="true">&gt;</span> <span>${s}</span></div>`)
         .join("\n");
 
     return `
-<${tag} ${href} ${ariaRole}
-class="border border-secondary-container bg-surface-container/40 p-4
-       hover:bg-surface-container/80 hover:border-primary
-       focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container/80
-       transition-colors cursor-pointer group block">
-<div class="flex items-start justify-between gap-2">
-  <div class="flex items-center gap-2 mb-2 min-w-0">
-    <span class="text-secondary group-hover:text-primary shrink-0" aria-hidden="true">&gt;</span>
-    <h4 class="font-headline-lg-mobile text-text-bright tracking-wider
-                 card-title transition-all duration-300 truncate m-0 text-base">
+<${tag} ${href} ${ariaRole} class="project-card">
+<div class="card-header">
+  <div class="card-title-row">
+    <span class="card-title-arrow" aria-hidden="true">&gt;</span>
+    <h4 class="card-title">
       MODULE: ${project.name}
     </h4>
   </div>
-  <span class="font-label-ui text-[10px] shrink-0
-               ${style.bg} ${style.text} border ${style.border} px-2 py-1"
-               aria-label="Status: ${project.status}">
+  <span class="status-badge ${statusClass}" aria-label="Status: ${project.status}">
     ${project.status}
   </span>
 </div>
-<div class="pl-4 border-l border-outline-variant ml-1
-            flex flex-col gap-1 text-text-dim text-sm font-body-md mt-2">
-  <span><span aria-hidden="true">&gt;</span> DESC: ${project.desc}</span>
+<div class="card-details">
+  <div class="card-stat-line"><span class="bullet-sym" aria-hidden="true">&gt;</span> <span>DESC: ${project.desc}</span></div>
   ${stats}
 </div>
 </${tag}>`;
