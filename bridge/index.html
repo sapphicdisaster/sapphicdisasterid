@@ -13,69 +13,69 @@
             }
         </style>
     </head>
-    <body class="relative min-h-dvh flex-col">
+    <body class="site_body relative_body">
         <!-- Return Link -->
-        <a href="https://id.lesbia.nz" class="return-link">&lt; RETURN</a>
+        <a href="https://id.lesbia.nz" class="return_link">&lt; RETURN</a>
 
         <!-- Global Effects -->
         <div class="scanlines" aria-hidden="true"></div>
-        <div class="crt-flicker" aria-hidden="true"></div>
-        <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+        <div class="crt_flicker" aria-hidden="true"></div>
+        <canvas id="matrix_canvas" aria-hidden="true"></canvas>
 
         <!-- Main Splash Content -->
-        <main class="bridge-splash-content">
+        <main class="bridge_splash_content">
             <!-- Bridge Formation -->
-            <div class="bridge-wrapper">
+            <div class="bridge_wrapper">
                 <!-- Glitch decorative elements behind logo -->
-                <div class="blur-glitch-bg"></div>
+                <div class="blur_glitch_bg"></div>
                 
-                <div class="bridge-nodes">
+                <div class="bridge_nodes">
                     <!-- Origin Node -->
-                    <div class="node-card origin-node">
-                        <div class="pulse-bg"></div>
-                        <div class="node-label">ORIGIN_NODE</div>
-                        <h2 class="node-title">lesbia.nz</h2>
+                    <div class="node_card origin_node">
+                        <div class="pulse_bg"></div>
+                        <div class="node_label">ORIGIN_NODE</div>
+                        <h2 class="node_title">lesbia.nz</h2>
                     </div>
 
                     <!-- Transfer Link -->
-                    <div class="transfer-column">
-                        <span class="material-symbols-outlined transfer-icon" aria-hidden="true">lock</span>
-                        <div class="pulse-dots">
-                            <span class="pulse-dot"></span>
-                            <span class="pulse-dot"></span>
-                            <span class="pulse-dot"></span>
+                    <div class="transfer_column">
+                        <span class="material-symbols-outlined transfer_icon" aria-hidden="true">lock</span>
+                        <div class="pulse_dots">
+                            <span class="pulse_dot"></span>
+                            <span class="pulse_dot"></span>
+                            <span class="pulse_dot"></span>
                         </div>
                     </div>
 
                     <!-- Target Node -->
-                    <div class="node-card target-node">
-                        <div class="pulse-bg"></div>
-                        <div class="node-label">TARGET_NODE</div>
-                        <h2 class="node-title">angelic.lesbia.nz</h2>
+                    <div class="node_card target_node">
+                        <div class="pulse_bg"></div>
+                        <div class="node_label">TARGET_NODE</div>
+                        <h2 class="node_title">angelic.lesbia.nz</h2>
                     </div>
                 </div>
                 
-                <p class="transit-subtext">
+                <p class="transit_subtext">
                     Initialising Transit Sequence <span class="cursor"></span>
                 </p>
             </div>
 
             <!-- Terminal Output Simulation -->
             <div class="sr-only">Handshake established. Resolving target signature. Scanning for adventure data. Loading world state. Initialising parser. Encrypting transit payload. Warning: You are likely to be eaten by a grue. Transferring identity manifests. Bridge synchronised. You may proceed.</div>
-            <div class="terminal-console" id="terminal-output" aria-hidden="true">
-                <div class="terminal-console-line"></div>
+            <div class="terminal_console" id="terminal-output" aria-hidden="true">
+                <div class="terminal_console_line"></div>
                 <!-- Dynamic JS content goes here -->
             </div>
 
             <!-- Action / Entry -->
-            <button class="enter-btn" onclick="initiateSequence()">
+            <button class="enter_btn" onclick="initiateSequence()">
                 BRIDGE_PROTOCOL
             </button>
         </main>
 
         <script>
             // --- 3D Grid Matrix Animation ---
-            const canvas = document.getElementById('matrix-canvas');
+            const canvas = document.getElementById('matrix_canvas');
             const ctx = canvas.getContext('2d');
 
             let width, height;
@@ -171,7 +171,7 @@
                     p.style.margin = "0 0 0.25rem 0";
 
                     if(bootSequence[lineIndex].includes("[WARN]")) {
-                         p.style.color = "var(--terminal-pink)";
+                         p.style.color = "var(--terminal_pink)";
                     }
 
                     terminalOutput.appendChild(p);
@@ -191,7 +191,7 @@
                 if (!confirm(warningText)) {
                     return;
                 }
-                const btn = document.querySelector('.enter-btn');
+                const btn = document.querySelector('.enter_btn');
                 btn.textContent = "EXECUTING...";
                 btn.classList.add('executing');
                 

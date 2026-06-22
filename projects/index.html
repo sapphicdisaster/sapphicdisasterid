@@ -16,61 +16,61 @@
         <script src="/projects.js"></script>
     </head>
 
-    <body class="relative min-h-dvh flex-col">
-        <a href="#projects-container" class="sr-only">Skip to main content</a>
+    <body class="site_body relative_body">
+        <a href="#projects_container" class="sr-only">Skip to main content</a>
         
         <!-- Environmental overlays -->
-        <div class="grid-bg" aria-hidden="true"></div>
-        <div class="crt-overlay" aria-hidden="true"></div>
+        <div class="grid_bg" aria-hidden="true"></div>
+        <div class="crt_overlay" aria-hidden="true"></div>
 
-        <main class="projects-layout-main">
-            <div class="terminal-wrapper">
+        <main class="projects_layout_main">
+            <div class="terminal_wrapper">
                 <!-- Terminal title bar -->
-                <div class="terminal-header">
-                    <span class="terminal-header-title" id="term-header-text">BOOT_SEQ_V1.0</span>
-                    <div class="terminal-header-buttons">
-                        <div class="terminal-dot"></div>
-                        <div class="terminal-dot"></div>
-                        <div class="terminal-dot active"></div>
+                <div class="terminal_header">
+                    <span class="terminal_header_title" id="term-header-text">BOOT_SEQ_V1.0</span>
+                    <div class="terminal_header_buttons">
+                        <div class="terminal_dot"></div>
+                        <div class="terminal_dot"></div>
+                        <div class="terminal_dot active"></div>
                     </div>
                 </div>
 
                 <!-- Boot sequence output (visible first) -->
                 <div class="sr-only">System initializing. Root filesystem OK. Bypassing security protocols. System compromised. Mounting active projects.</div>
-                <div class="boot-output" id="terminal-output" aria-hidden="true">
+                <div class="boot_output" id="terminal-output" aria-hidden="true">
                     <!-- injected by JS -->
                 </div>
 
                 <!-- Projects directory (hidden until boot completes) -->
-                <div class="projects-container" id="projects-container">
+                <div class="projects_container" id="projects_container">
                     <!-- Header row -->
-                    <div class="projects-header-row">
-                        <h2 class="projects-title">/ACTIVE_PROJECTS</h2>
-                        <p class="module-count" id="module-count"></p>
+                    <div class="projects_header_row">
+                        <h2 class="projects_title">/ACTIVE_PROJECTS</h2>
+                        <p class="module_count" id="module_count"></p>
                     </div>
 
                     <!-- Cards injected here by JS -->
-                    <div class="cards-grid" id="cards-grid"></div>
+                    <div class="cards_grid" id="cards_grid"></div>
                 </div>
             </div>
         </main>
 
         <!-- Bottom nav (all screen sizes) -->
-        <nav class="bottom-nav">
+        <nav class="bottom_nav">
             <!-- CORE -->
-            <a class="nav-item inactive" href="https://id.lesbia.nz" aria-label="Core Site">
-                <span class="material-symbols-outlined nav-icon" aria-hidden="true">memory</span>
-                <span class="nav-label">CORE</span>
+            <a class="nav_item inactive" href="https://id.lesbia.nz" aria-label="Core Site">
+                <span class="material-symbols-outlined nav_icon" aria-hidden="true">memory</span>
+                <span class="nav_label">CORE</span>
             </a>
             <!-- PROJECTS (active) -->
-            <a class="nav-item active" href="https://id.lesbia.nz/projects" aria-label="Projects">
-                <span class="material-symbols-outlined nav-icon" style="font-variation-settings: &quot;FILL&quot; 1" aria-hidden="true">save</span>
-                <span class="nav-label">PROJECTS</span>
+            <a class="nav_item active" href="https://id.lesbia.nz/projects" aria-label="Projects">
+                <span class="material-symbols-outlined nav_icon" style="font-variation-settings: &quot;FILL&quot; 1" aria-hidden="true">save</span>
+                <span class="nav_label">PROJECTS</span>
             </a>
             <!-- ASCEND -->
-            <a class="nav-item btn-ascend" href="https://id.lesbia.nz/bridge" aria-label="Ascend to alternative experience">
-                <span class="material-symbols-outlined nav-icon" aria-hidden="true">arrow_upward</span>
-                <span class="nav-label">ASCEND</span>
+            <a class="nav_item btn_ascend" href="https://id.lesbia.nz/bridge" aria-label="Ascend to alternative experience">
+                <span class="material-symbols-outlined nav_icon" aria-hidden="true">arrow_upward</span>
+                <span class="nav_label">ASCEND</span>
             </a>
         </nav>
 
@@ -78,10 +78,10 @@
             // ─── Boot sequence typewriter ────────────────────────────────────────────
             const terminalOutput = document.getElementById("terminal-output");
             const projectsContainer =
-                document.getElementById("projects-container");
+                document.getElementById("projects_container");
             const termHeaderText = document.getElementById("term-header-text");
-            const moduleCount = document.getElementById("module-count");
-            const cardsGrid = document.getElementById("cards-grid");
+            const moduleCount = document.getElementById("module_count");
+            const cardsGrid = document.getElementById("cards_grid");
 
             const bootSequence = [
                 "INIT ROOTFS [OK]",
@@ -100,7 +100,7 @@
                         const lineDiv = document.createElement("div");
                         lineDiv.className = "flex";
                         lineDiv.style.display = "flex";
-                        lineDiv.innerHTML = `<span style="color: var(--secondary); margin-right: 0.5rem; flex-shrink: 0;">></span><span class="typewriter-text" style="color: var(--text-dim);"></span><span class="cursor"></span>`;
+                        lineDiv.innerHTML = `<span style="color: var(--secondary); margin-right: 0.5rem; flex-shrink: 0;">></span><span class="typewriter-text" style="color: var(--text_dim);"></span><span class="cursor"></span>`;
                         terminalOutput.appendChild(lineDiv);
                         isTyping = true;
                         charIndex = 0;
@@ -128,7 +128,7 @@
                             text.includes("WARNING") ||
                             text.includes("COMPROMISED")
                         ) {
-                            textSpan.style.color = "var(--terminal-pink)";
+                            textSpan.style.color = "var(--terminal_pink)";
                         } else if (text.includes("[OK]")) {
                             textSpan.style.color = "var(--tertiary)";
                         }

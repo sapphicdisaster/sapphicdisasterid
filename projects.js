@@ -74,13 +74,13 @@ const PROJECTS = [
 
 // ─── Status badge class map ──────────────────────────────────────────────
 const STATUS_STYLES = {
-    ONLINE: "status-online",
-    COMPILING: "status-compiling",
-    DEPLOYED: "status-deployed",
-    ARCHIVED: "status-archived",
-    IN_DEV: "status-indev",
+    ONLINE: "status_online",
+    COMPILING: "status_compiling",
+    DEPLOYED: "status_deployed",
+    ARCHIVED: "status_archived",
+    IN_DEV: "status_indev",
 };
-const STATUS_DEFAULT = "status-default";
+const STATUS_DEFAULT = "status_default";
 
 // ─── Card renderer ───────────────────────────────────────────────────────
 function renderCard(project) {
@@ -90,24 +90,24 @@ function renderCard(project) {
     const ariaRole = project.url ? "" : `role="region" tabindex="0" aria-label="Project: ${project.name}"`;
 
     const stats = project.stats
-        .map((s) => `<div class="card-stat-line"><span class="bullet-sym" aria-hidden="true">&gt;</span> <span>${s}</span></div>`)
+        .map((s) => `<div class="card_stat_line"><span class="bullet_sym" aria-hidden="true">&gt;</span> <span>${s}</span></div>`)
         .join("\n");
 
     return `
-<${tag} ${href} ${ariaRole} class="project-card">
-<div class="card-header">
-  <div class="card-title-row">
-    <span class="card-title-arrow" aria-hidden="true">&gt;</span>
-    <h4 class="card-title">
+<${tag} ${href} ${ariaRole} class="project_card">
+<div class="card_header">
+  <div class="card_title_row">
+    <span class="card_title_arrow" aria-hidden="true">&gt;</span>
+    <h4 class="card_title">
       MODULE: ${project.name}
     </h4>
   </div>
-  <span class="status-badge ${statusClass}" aria-label="Status: ${project.status}">
+  <span class="status_badge ${statusClass}" aria-label="Status: ${project.status}">
     ${project.status}
   </span>
 </div>
-<div class="card-details">
-  <div class="card-stat-line"><span class="bullet-sym" aria-hidden="true">&gt;</span> <span>DESC: ${project.desc}</span></div>
+<div class="card_details">
+  <div class="card_stat_line"><span class="bullet_sym" aria-hidden="true">&gt;</span> <span>DESC: ${project.desc}</span></div>
   ${stats}
 </div>
 </${tag}>`;
