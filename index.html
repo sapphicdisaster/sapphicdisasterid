@@ -371,6 +371,21 @@
                             });
                     });
                 });
+                
+                // Populate print layout projects
+                const printTableBody = document.querySelector(".cv_table tbody");
+                if (printTableBody && typeof PROJECTS !== 'undefined') {
+                    const projectsHtml = PROJECTS.map(p => `
+                        <tr>
+                            <td class="table_label" style="font-size: 8pt; padding-top: 15px;">Project: ${p.name}</td>
+                            <td style="padding-top: 15px; font-size: 9pt;">
+                                <strong>${p.desc}</strong><br>
+                                <span style="font-family: monospace; color: #444; font-size: 8pt;">${p.stats.join(' | ')}</span>
+                            </td>
+                        </tr>
+                    `).join('');
+                    printTableBody.insertAdjacentHTML('beforeend', projectsHtml);
+                }
             });
 
             // --- Lazy Load Projects ---
