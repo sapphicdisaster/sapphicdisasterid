@@ -1324,3 +1324,86 @@ ul {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   PRINT LAYOUT (A4 CV)
+   ───────────────────────────────────────────────────────────────────────── */
+.print_layout {
+    display: none;
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: 2cm;
+    }
+
+    body {
+        background: white;
+        color: black;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Hide screen elements */
+    .hero_section, .main_content, .bottom_nav, .bg_grid, .scanlines, .crt_overlay, .crt_flicker {
+        display: none;
+    }
+
+    /* Show print layout */
+    .print_layout {
+        display: block;
+        font-family: sans-serif;
+    }
+
+    .cv_table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 11pt;
+        line-height: 1.5;
+    }
+
+    .cv_table th {
+        text-align: left;
+        font-size: 16pt;
+        border-bottom: 2px solid black;
+        padding-bottom: 12px;
+        margin-bottom: 24px;
+        font-weight: normal;
+        letter-spacing: 1px;
+    }
+
+    .cv_table td {
+        padding: 12px 0;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    .cv_table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .cv_table .table_label {
+        width: 180px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 9pt;
+        letter-spacing: 1px;
+        color: #333;
+    }
+
+    .cv_table ul {
+        margin: 0;
+        padding-left: 16px;
+        list-style-type: square;
+    }
+
+    .cv_table li {
+        margin-bottom: 6px;
+        color: black;
+    }
+
+    .cv_table li::before {
+        display: none;
+    }
+}
